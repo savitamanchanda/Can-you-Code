@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can you Code?</title>
+</head>
+
+<body>
+<header>
+  <h1>Are you ready for the challenge?</h1>
+  <button id = "start">Start Game</button>
+  <button id = "next" class = "hide">Next</button>
+</header>
+
+<main>
+    <section>
+        <div class = "container">
+          <div id = "question-container" class="hide">
+            <div id="questions">Question</div>
+            <div id="answer-button">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+          </div>  
+        </div>
+    </section>
+
+    <section>
+        <div class = "result">
+        <div>
+            <h2>Wins: <span class ="win">0</span></h2>
+            <h2>Losses: <span class ="loss">0</span></h2>
+        </div>
+        <button class="reset">Reset Score</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
