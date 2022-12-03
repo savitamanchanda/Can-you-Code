@@ -17,9 +17,10 @@ main {
     box-shadow: 0 0 10px 2px;
 }
 
-.container h2 {
+.container p {
     color: white;
     text-decoration: none;
+    font-size: 35px;
 }
 
 #answer-button {
