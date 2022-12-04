@@ -20,6 +20,7 @@ main {
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+    margin-top: -500px;
 }
 
 .btn-grid{
@@ -69,6 +70,10 @@ header button{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
+}
+
+header p{
+    font-size: 100px;
 }
 
 .hide{

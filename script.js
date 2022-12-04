@@ -33,7 +33,7 @@ var questions = [
         ]
     },
     {
-        question: 'Which symbol is used separate JavaScript statements?',
+        question: 'Which symbol is used to separate JavaScript statements?',
         answers: [
             {text: 'Comma (,)'},
             {text: 'Colon (:)'},
@@ -45,7 +45,7 @@ var questions = [
         question: 'Which JavaScript method is used to access an HTML element by id?',
         answers: [
             {text: 'getElementById()'},
-            {text: 'getElementById()'},
+            {text: 'getElementBy(id)'},
             {text: 'getElementById(id)'},
             {text: 'elementById(id)'}
         ]
@@ -73,11 +73,12 @@ var correctAnswers = ['<script>...</script>', 'Semicolon (;)', 'getElementById(i
 
 function startTimer(){
 
-    timeLeft = 21;
+    timeLeft = 91;
 
     timeInterval = setInterval(function () {
       timeLeft--;
       timerEl.textContent = timeLeft + " seconds remaining";
+      timerEl.classList.remove('hide');
 
       if (timeLeft >=0) {
         if (questions.length < currentQuestionIndex + 1) {
@@ -111,12 +112,14 @@ nextButton.addEventListener('click', () => {
     shuffledQuestions = questions[currentQuestionIndex];
     setQuestion();
     setResult.classList.add('hide');
-})
+});
+
 
 function setQuestion() {
 reset();
 showQuestion(shuffledQuestions);
 }
+
 
 function showQuestion(question) {
 quesEl.textContent = question.question
@@ -141,7 +144,6 @@ setResult.classList.remove('hide');
 if (correctAnswers.includes(selectedButton)) {
     setResult.innerText = 'You are correct!'
     pointCounter = pointCounter + 10
-    console.log(pointCounter)
 } else {
     setResult.innerText = 'You are incorrect.'
     pointCounter = pointCounter - 10
@@ -179,7 +181,7 @@ startGame();
 }
 
 function loseGame() {
-    timerEl.textContent = 'Sorry! Time is up!'
-    finishQuiz();
+timerEl.textContent = 'Sorry! Time is up!'
+finishQuiz();
 }
 
