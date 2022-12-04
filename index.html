@@ -19,7 +19,19 @@
 <main>
     <section>
         <div class = "container">
-            <p id="landing">Welcome to the Coding Challenge. Test your Javascript knowledge in 90 seconds with this multiple choice quiz.  </h2>
+            <p id="landing">Welcome to the Coding Challenge. Test your Javascript knowledge in 90 seconds with this multiple choice quiz.</p>
+                <section>
+                    <div id = "score" class="hide">
+                        <h2>All Done!</h2>
+                        <p>Enter your intials to view score</p>
+                        <input type="text" id="initial" name="name">
+                        <button id = "showScore">Show Score</button>
+                    </div>
+                </section>
+                <section>
+                    <div id = "final" class="hide">
+                        <h2 id="scores"></h2>
+                    </div>
           <div id = "question-container" class="hide">
             <div id="question">Question</div>
             <div id="answer-buttons">
@@ -30,15 +42,6 @@
             </div>
             <p id="result"></p>
         </div>  
-        </div>
-    </section>
-
-    <section>
-        <div class = "result hide">
-        <div>
-            <h2>Your Score is: <span class ="win">0</span></h2>
-        </div>
-        <button class="reset">Reset Score</button>
         </div>
     </section>
 </main>

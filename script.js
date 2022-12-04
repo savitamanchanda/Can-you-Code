@@ -5,59 +5,90 @@ var qContainerEl = document.getElementById('question-container')
 var heading = document.getElementById('landing');
 var quesEl = document.getElementById('question');
 var ansButtonEl = document.getElementById('answer-buttons');
-var setResult = document.getElementById('result')
+var setResult = document.getElementById('result');
+var showScore = document.getElementById('showScore');
+var scoreArea = document.getElementById('score');
+var initial = document.getElementById('initial');
+var showScore = document.getElementById('showScore');
+var final = document.getElementById('final');
+var scores = document.getElementById('scores');
+var showPrevious = document.getElementById('showPrevious');
+var previousScore = document.getElementById('previousScore')
+var pScore = document.getElementById('Pscore');
 
+var timeInterval;
 var shuffledQuestions;
 var currentQuestionIndex;
 var timeLeft = 0;
 var pointCounter = 0;
 var questions = [ 
     {
-        question: 'Which of the following is not Javascript data types?',
+        question: 'In which HTML element, we put the JavaScript code?',
         answers: [
-            {text: 'Undefined type'},
-            {text: 'Null type'},
-            {text: 'Number type'},
-            {text: 'All of the mentioned'}
+            {text: '<javascript>...</javascript>'},
+            {text: '<js>...</js>'},
+            {text: '<script>...</script>'},
+            {text: '<css>...</css>'}
         ]
     },
     {
-        question: 'Which of the following methods is used to access HTML elements using Javascript?',
+        question: 'Which symbol is used separate JavaScript statements?',
         answers: [
-            {text: '1'},
-            {text: '2'},
-            {text: '3'},
-            {text: '4'}
+            {text: 'Comma (,)'},
+            {text: 'Colon (:)'},
+            {text: 'Hyphen (_)'},
+            {text: 'Semicolon (;)'}
         ]
     },
     {
-        question: 'Which of the following is not ?',
+        question: 'Which JavaScript method is used to access an HTML element by id?',
         answers: [
-            {text: 'a'},
-            {text: 'b'},
-            {text: 'c'},
-            {text: 'd'}
+            {text: 'getElementById()'},
+            {text: 'getElementById()'},
+            {text: 'getElementById(id)'},
+            {text: 'elementById(id)'}
         ]
     },
     {
-        question: 'Which of?',
+        question: "Which JavaScript method is used to write on browser's console?",
         answers: [
-            {text: 'e'},
-            {text: 'f'},
-            {text: 'g'},
-            {text: 'h'}
+            {text: 'console.write()'},
+            {text: 'console.output()'},
+            {text: 'console.log()'},
+            {text: 'console.writeHTML()'}
+        ]
+    },
+    {
+        question: "Which JavaScript method is used to write into an alert box?",
+        answers: [
+            {text: 'window.alertHTML()'},
+            {text: 'window.alert()'},
+            {text: 'window.alertBox()'},
+            {text: 'window.alertContent()'}
         ]
     }
 ];
-var correctAnswers = ['All of the mentioned', 'a', '1', 'h'];
+var correctAnswers = ['<script>...</script>', 'Semicolon (;)', 'getElementById(id)', 'console.log()', 'window.alert()'];
 
 function startTimer(){
 
-    timeLeft = 91;
+    timeLeft = 21;
 
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       timeLeft--;
       timerEl.textContent = timeLeft + " seconds remaining";
+
+      if (timeLeft >=0) {
+        if (questions.length < currentQuestionIndex + 1) {
+        clearInterval(timeInterval);
+        finishQuiz();
+    }
+    }
+
+    if (timeLeft === 0) {
+        clearInterval(timeInterval);
+        loseGame();
+    }
   
     }, 1000);
 }
@@ -78,6 +109,7 @@ nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     shuffledQuestions = questions[currentQuestionIndex];
     setQuestion();
+    setResult.classList.add('hide');
 })
 
 function setQuestion() {
@@ -104,25 +136,39 @@ function reset() {
 }
 function answerSelected(e) {
 var selectedButton = e.target.textContent;
+setResult.classList.remove('hide');
 if (correctAnswers.includes(selectedButton)) {
     setResult.innerText = 'You are correct!'
-    pointCounter++
+    pointCounter = pointCounter + 10
+    console.log(pointCounter)
 } else {
     setResult.innerText = 'You are incorrect.'
-    pointCounter--
+    pointCounter = pointCounter - 10
 }
-//setPoints();
 if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
 } else {
-    showHighScore();
+    clearInterval(timeInterval);
+    finishQuiz();
 }
 }
 
-function setPoints() {
+function finishQuiz(){
+    heading.classList.add('hide');
+    qContainerEl.classList.add('hide');
+    scoreArea.classList.remove('hide');
+}
+
+showScore.addEventListener('click', finalScore);
+
+function finalScore(){
+timerEl.classList.add('hide');
+final.classList.remove('hide');
+scores.textContent = initial.value + " - " + pointCounter
+localStorage.setItem("PointCount", pointCounter )
+}
+
+function loseGame() {
+    finishQuiz();
     
-}
-
-function showHighScore(){
-
 }
