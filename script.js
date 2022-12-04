@@ -15,6 +15,7 @@ var scores = document.getElementById('scores');
 var showPrevious = document.getElementById('showPrevious');
 var previousScore = document.getElementById('previousScore')
 var pScore = document.getElementById('Pscore');
+var restartButton = document.getElementById('restart');
 
 var timeInterval;
 var shuffledQuestions;
@@ -165,10 +166,20 @@ function finalScore(){
 timerEl.classList.add('hide');
 final.classList.remove('hide');
 scores.textContent = initial.value + " - " + pointCounter
-localStorage.setItem("PointCount", pointCounter )
+localStorage.setItem("PointCount", pointCounter)
+}
+
+restartButton.addEventListener('click', resetGame);
+
+function resetGame(){
+scoreArea.classList.add('hide');
+final.classList.add('hide');
+setResult.classList.add('hide');
+startGame();
 }
 
 function loseGame() {
+    timerEl.textContent = 'Sorry! Time is up!'
     finishQuiz();
-    
 }
+

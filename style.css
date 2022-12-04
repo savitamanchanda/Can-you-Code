@@ -17,6 +17,21 @@ main {
     box-shadow: 0 0 10px 2px;
 }
 
+.btn-grid{
+display: grid;
+grid-template-columns: repeat(2,auto);
+gap: 10px;
+margin: 20px 0px;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+#question{
+    font-size: 25px;
+}
+
 .container p {
     color: white;
     text-decoration: none;
@@ -53,5 +68,9 @@ header button{
 
 .hide{
     display: none;
+}
+
+#result {
+    font-size: 30px;
 }
 
