@@ -165,7 +165,7 @@ showScore.addEventListener('click', finalScore);
 function finalScore(){
 timerEl.classList.add('hide');
 final.classList.remove('hide');
-scores.textContent = initial.value + " - " + pointCounter
+scores.textContent = "1. " + initial.value + " : " + pointCounter
 localStorage.setItem("PointCount", pointCounter)
 }
 
