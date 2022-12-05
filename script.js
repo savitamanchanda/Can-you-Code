@@ -157,6 +157,7 @@ if (questions.length > currentQuestionIndex + 1) {
 } else {
     clearInterval(timeInterval);
     finishQuiz();
+    timerEl.classList.add('hide');
 }
 }
 

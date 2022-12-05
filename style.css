@@ -1,5 +1,6 @@
 body{
     background-image: linear-gradient(#f58ae34d 10%, rgba(255, 162, 246, 0.6) 90%);;
+    font-family: "copperplate", fantasy;
 }
 
 
@@ -28,6 +29,7 @@ display: grid;
 grid-template-columns: repeat(2,auto);
 gap: 10px;
 margin: 20px 0px;
+font-family: "copperplate", fantasy;
 }
 
 .btn{
@@ -49,6 +51,12 @@ display: grid;
 grid-template-columns: repeat(2,auto);
 gap: 10px;
 margin: 20px 0;
+font-family: "copperplate", fantasy;
+}
+
+#answe-button:focus{
+    background-image: linear-gradient(#ab39b64d 10%, rgba(224, 39, 221, 0.6) 90%);;
+    border-color: rgb(248, 9, 240);
 }
 
 button {
@@ -70,6 +78,7 @@ header button{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
+    font-family: "copperplate", fantasy;
 }
 
 header p{
@@ -84,3 +93,31 @@ header p{
     font-size: 30px;
 }
 
+input{
+    border-color: rgb(248, 9, 240); 
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+    font-family: "copperplate", fantasy;
+    font-size: 30px;
+}
+
+input:focus {
+    background-image: linear-gradient(#ab39b64d 10%, rgba(224, 39, 221, 0.6) 90%);;
+    border-color: rgb(248, 9, 240);
+}
+
+#score button{
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "copperplate", fantasy;
+}
+
+#final button{
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 20px;  
+    font-family: "copperplate", fantasy;
+    
+}
