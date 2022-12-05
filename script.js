@@ -107,12 +107,12 @@ setQuestion()
 }
 
 startButton.addEventListener("click", startGame);  
-nextButton.addEventListener('click', () => {
+/*nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     shuffledQuestions = questions[currentQuestionIndex];
     setQuestion();
     setResult.classList.add('hide');
-});
+}); */
 
 
 function setQuestion() {
@@ -146,10 +146,14 @@ if (correctAnswers.includes(selectedButton)) {
     pointCounter = pointCounter + 10
 } else {
     setResult.innerText = 'You are incorrect.'
-    pointCounter = pointCounter - 10
+    timeLeft = timeLeft - 5;
 }
 if (questions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
+    //nextButton.classList.remove('hide')
+    currentQuestionIndex++;
+    shuffledQuestions = questions[currentQuestionIndex];
+    setQuestion();
+    //setResult.classList.add('hide');
 } else {
     clearInterval(timeInterval);
     finishQuiz();
