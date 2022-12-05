@@ -32,10 +32,6 @@ margin: 20px 0px;
 font-family: "copperplate", fantasy;
 }
 
-.btn{
-    font-size: 20px;
-}
-
 #question{
     font-size: 25px;
 }
@@ -53,10 +49,14 @@ gap: 10px;
 margin: 20px 0;
 font-family: "copperplate", fantasy;
 }
+.btn{
+    font-family: "copperplate", fantasy;
+    font-size: 20px;
+}
 
-#answe-button:focus{
+.btn:hover{
     background-image: linear-gradient(#ab39b64d 10%, rgba(224, 39, 221, 0.6) 90%);;
-    border-color: rgb(248, 9, 240);
+    border-color: black;
 }
 
 button {
@@ -119,5 +119,4 @@ input:focus {
     padding: 10px 20px;
     font-size: 20px;  
     font-family: "copperplate", fantasy;
-    
 }
